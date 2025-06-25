@@ -30,12 +30,12 @@ class MainActivity : ComponentActivity() {
         nativeLib = NativeLib()
         val mp3Path = copyMp3()
         Log.d(TAG, "mp3=$mp3Path")
-        Log.d(TAG, "nativeLib, readAudio=${nativeLib.readAudioTag(mp3Path)}")
+//        Log.d(TAG, "nativeLib, readAudio=${nativeLib.readAudioTag(mp3Path)}")
         // 使用示例
-//        val metadata = nativeLib.getAudioMetadata(mp3Path)
-//        metadata?.forEach { (key, value) ->
-//            Log.d("AudioTag", "$key: $value")
-//        }
+        val metadata = nativeLib.getAudioMetadata(mp3Path)
+        metadata?.forEach { (key, value) ->
+            Log.d(TAG, "$key: $value")
+        }
         enableEdgeToEdge()
         setContent {
             TagLibMetaTheme {
